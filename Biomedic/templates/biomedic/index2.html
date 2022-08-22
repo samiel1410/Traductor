@@ -1,0 +1,141 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!--
+        <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@800&family=Quicksand:wght@500&display=swap"
+        rel="stylesheet">
+    <style>
+        .bd-example-position-utils {
+            position: relative;
+            padding: 2rem
+        }
+
+        .bd-example-position-utils .position-relative {
+            height: 100px;
+            background-color: #f5f5f5
+        }
+
+        #title {
+            font-family: 'Dosis', sans-serif;
+        }
+        .soft{
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body class="p-3 border-0">
+
+    <!-- Example Code 
+        
+        <div class="position-absolute top-0 start-0">
+            <img src="{% static 'logo_espe.png' %}" class="img-fluid w-25 h-25" alt="logo ESPE">
+        </div>
+    -->
+
+    <div class="d-flex flex-row bd-highlight mb-3">
+        <div class="p-2 bd-highlight">
+            <img src="{% static 'logo_espe.png' %}" width="300" alt="logo Software">            
+        </div>
+      </div>
+    <div class="d-flex flex-row-reverse bd-highlight">
+        <div class="p-2 ">
+            <img src="{% static 'logo_sftw.jpeg' %}" width="300" alt="logo Software">
+        </div>
+    </div>
+    <!--
+          <div class="position-absolute top-0 end-0">
+        </div>
+    -->
+    <div class="position-absolute top-50 start-50 translate-middle"></div>
+
+
+    <!--<div class="container"> 
+  <div class="position-relative">
+    <div class="position-absolute top-0 start-0">
+        <img src="{% static 'logo_espe.png' %}" class="img-fluid w-25 h-25" alt="logo Software">
+    </div>
+    <div class="position-absolute top-0 start-50 translate-middle-x"></div>
+    <div class="position-absolute top-0 end-0">
+      <img src="{% static 'logo_sftw.jpeg' %}" class="img-fluid w-50 h-50" alt="logo Software">
+    </div>
+  </div>
+<div class="container w-75 p-3">
+
+    <div class="position-absolute top-50 start-50 translate-middle w-75 p-3">
+        <h1 id="title" class="text-center mt-5">Etiquetador de conceptos biomédicos en español</h1>
+        <div class="row row-cols-2">
+            <div class="col">
+                <div class="mb-3 mt-5">
+                    <form method='GET' action="">
+                        {% csrf_token %}
+                        <label for="exampleFormControlTextarea1" class="form-label" aria-placeholder="Textarea"
+                            value="">Ingrese
+                            su
+                            frase</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" name="dato"
+                            rows="4">infecciones</textarea>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Etiquetar</button>
+                </div>
+                </form>
+
+            </div>
+            <div class="col mt-5 pl-5">
+                Tabla
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Entidad</th>
+
+                            <th scope="col">Código</th>
+
+                            <th scope="col">Posición Español</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%for dato in data %}
+                        <tr>
+
+                            <td>{{dato.entidad}}</td>
+                            <td>{{dato.codigo}}</td>
+                            <td>{{dato.posicion}}</td>
+
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</div> -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
